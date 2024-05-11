@@ -1,9 +1,10 @@
-import React from 'react'
+import React from 'react';
+import { Outlet } from 'react-router-dom';
 
 const App = () => {
-  return (
-    <h1>Welcome To Sentence Splitter App</h1>
-  )
-}
+  return <>
+    <Outlet/>
+  </>
+};
 
-export default App
+export default App;
