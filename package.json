@@ -1,0 +1,33 @@
+{
+  "name": "dvara",
+  "version": "1.0.0",
+  "description": "Sentence Splitter App",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "server": "nodemon backend/server.js",
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "data:import": "node backend/seeder.js",
+    "data:destroy": "node backend/seeder.js -d",
+    "build": "concurrently \"npm install\" \"npm install --prefix frontend\" \"npm run build --prefix frontend\""
+  },
+  "author": "Rajan Gupta",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "compromise": "^14.13.0",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "natural": "^7.0.5",
+    "sentence-splitter": "^5.0.0",
+    "wink-eng-lite-web-model": "^1.7.1",
+    "wink-nlp": "^2.2.2"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "dotenv": "^16.4.5",
+    "nodemon": "^3.1.0"
+  }
+}

@@ -1,13 +1,27 @@
+// HomeScreen.jsx
 import React, { useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import SentenceForm from '../components/SentenceForm';
 import SplitSentenceList from '../components/SplitSentenceList';
+import axios from 'axios';
 
 const HomeScreen = () => {
   const [splitSentences, setSplitSentences] = useState([]);
 
-  const handleFormSubmit = (sentence) => {
-    setSplitSentences(sentence.split(' and ')); // Dummy splitting logic, replace with actual backend communication
+  const handleFormSubmit = async (inputSentence) => {
+    try {
+      const response = await axios.post('/api/split', { text: inputSentence });
+      
+      if (!response.data) {
+        throw new Error('No data received');
+      }
+  
+      setSplitSentences(response.data.sentences);
+      // console.log(response.data.sentences);
+    } catch (error) {
+      console.error('Error splitting sentence:', error.message);
+      // Handle error
+    }
   };
 
   return (

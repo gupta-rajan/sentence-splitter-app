@@ -2,6 +2,7 @@ import React from 'react';
 import { ListGroup } from 'react-bootstrap';
 
 const SplitSentenceList = ({ sentences }) => {
+  console.log(sentences);
   return (
     <ListGroup>
       {sentences.map((sentence, index) => (
